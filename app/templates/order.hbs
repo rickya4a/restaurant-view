@@ -1,10 +1,12 @@
 {{page-title "Order"}}
 <div class="container mx-auto">
   <h2 class="text-3xl font-bold">Order</h2>
-  <p>
-    The Super Rentals website is a delightful project created to explore Ember.
-    By building a property rental site, we can simultaneously imagine traveling
-    AND building Ember applications.
-  </p>
+  <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
+    <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+      {{#each @model as |result|}}
+      <Order @data={{result}} />
+      {{/each}}
+    </table>
+  </div>
 </div>
 {{outlet}}

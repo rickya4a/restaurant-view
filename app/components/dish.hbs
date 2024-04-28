@@ -1,11 +1,9 @@
-{{!-- {{yield}} --}}
-
 <div class="mx-auto">
   <h3 class="text-3xl">{{@data.name}}</h3>
   <div class="detail type">
     <span>Price:</span> {{@data.price}}
     <button
-      class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+      class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-2 rounded"
       type="button"
       {{on "click" (fn this.addItem @data)}}
     >

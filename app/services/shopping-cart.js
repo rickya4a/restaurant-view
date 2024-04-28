@@ -18,6 +18,8 @@ export default class ShoppingCartService extends Service {
 
   loadCart() {
     this.cart = JSON.parse(localStorage.getItem('shoppingCart'));
+
+    return this.cart;
   }
 
   addItemToCart(dish) {
@@ -41,10 +43,11 @@ export default class ShoppingCartService extends Service {
         break;
       }
     }
+    this.saveCart();
   }
 
   removeItemFromCart(dish) {
-    for (var item in this.cart) {
+    for (let item in this.cart) {
       if (this.cart[item].name === dish.name) {
         this.cart[item].count--;
         if (this.cart[item].count === 0) {
@@ -81,8 +84,10 @@ export default class ShoppingCartService extends Service {
 
   listCart() {
     let cartCopy = [];
-    for (let i in this.cart) {
-      let item = this.cart[i];
+    let currentCart = this.loadCart();
+
+    for (let i in currentCart) {
+      let item = currentCart[i];
       let itemCopy = {};
 
       for (let p in item) {
