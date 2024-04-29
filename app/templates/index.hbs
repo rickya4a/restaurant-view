@@ -1,14 +1,6 @@
 {{page-title "Restaurant"}}
-<NavBar />
-
-<div class="container mx-auto">
-  <div class="w-auto">
-    <div class="grid grid-cols-4 gap-4">
-      {{#each @model as |result|}}
-      <Dish @data={{result}} />
-      {{/each}}
-    </div>
-  </div>
+<div class="grid grid-cols-4 gap-4">
+  {{#each @model as |result|}}
+  <Dish @data={{result}} />
+  {{/each}}
 </div>
-
-{{outlet}}

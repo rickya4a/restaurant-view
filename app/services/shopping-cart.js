@@ -32,7 +32,7 @@ export default class ShoppingCartService extends Service {
     }
 
     let item = new Item(dish.name, dish.price, 1);
-    this.cart.pushObject(item);
+    this.cart.push(item);
     this.saveCart();
   }
 
