@@ -2,7 +2,8 @@ import Service from '@ember/service';
 import { A } from '@ember/array';
 
 class Item {
-  constructor(name, price, count) {
+  constructor(id, name, price, count) {
+    this.id = id;
     this.name = name;
     this.price = price;
     this.count = count;
@@ -31,7 +32,7 @@ export default class ShoppingCartService extends Service {
       }
     }
 
-    let item = new Item(dish.name, dish.price, 1);
+    let item = new Item(dish.id, dish.name, dish.price, 1);
     this.cart.push(item);
     this.saveCart();
   }
