@@ -1,12 +1,9 @@
 {{page-title "Order"}}
 <div class="container mx-auto">
   <h2 class="text-2xl font-bold mb-2">Order</h2>
+  {{#if @model}}
   <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
-    <table class="w-full text-sm text-left rtl:text-right border border-gray-100 text-gray-500 dark:text-gray-400">
-      {{#each @model as |result|}}
-      <Order @data={{result}} />
-      {{/each}}
-    </table>
+    <Order @data={{@model}} />
   </div>
   <LinkTo
     @route="checkout"
@@ -17,4 +14,11 @@
       class="hover:text-white my-2 shadow-md float-end bg-blue-300 hover:bg-blue-800 text-black focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
     >Checkout</button>
   </LinkTo>
+  {{else}}
+  <div class="relative overflow-x-auto shadow-md border border-gray-300 sm:rounded-lg">
+    <span class="">
+      <h1 class="mx-auto my-4 text-center text-2xl">No data</h1>
+    </span>
+  </div>
+  {{/if}}
 </div>

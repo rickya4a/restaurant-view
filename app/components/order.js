@@ -23,4 +23,10 @@ export default class OrderComponent extends Component {
     this.cart.setCountForItem(dish, count);
     this.router.refresh();
   }
+
+  @action
+  removeAllItemFromCart(dish) {
+    this.cart.removeAllItemFromCart(dish);
+    this.router.refresh();
+  }
 }

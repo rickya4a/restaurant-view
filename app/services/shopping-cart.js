@@ -1,5 +1,6 @@
 import Service from '@ember/service';
 import { A } from '@ember/array';
+import { tracked } from '@glimmer/tracking';
 
 class Item {
   constructor(id, name, price, count) {
@@ -11,7 +12,7 @@ class Item {
 }
 
 export default class ShoppingCartService extends Service {
-  cart = A([]);
+  @tracked cart = A([]);
 
   saveCart() {
     localStorage.setItem('shoppingCart', JSON.stringify(this.cart));
@@ -32,6 +33,9 @@ export default class ShoppingCartService extends Service {
       }
     }
 
+    if (this.cart === null) {
+      this.cart = A([]);
+    }
     let item = new Item(dish.id, dish.name, dish.price, 1);
     this.cart.push(item);
     this.saveCart();

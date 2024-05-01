@@ -6,6 +6,7 @@ export default class CheckoutRoute extends Route {
 
   async model() {
     let response = await this.cart.listCart();
+
     return response;
   }
 }
