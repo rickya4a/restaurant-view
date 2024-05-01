@@ -12,4 +12,5 @@ Router.map(function () {
     this.route('checkout');
   });
   this.route('checkout');
+  this.route('login');
 });

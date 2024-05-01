@@ -8,7 +8,7 @@
   <button
     type="button"
     class="hover:text-white my-2 shadow-md float-end bg-blue-300 hover:bg-blue-800 text-black focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
-    {{on "click" (fn this.submitData)}}
+    {{on "click" this.submitData}}
   >Submit</button>
   {{else}}
   <div class="relative overflow-x-auto shadow-md border border-gray-300 sm:rounded-lg">

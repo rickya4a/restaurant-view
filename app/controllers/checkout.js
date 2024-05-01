@@ -8,7 +8,6 @@ export default class CheckoutController extends Controller {
   @service('shopping-cart') cart;
   @service router;
 
-  // TODO: submit data to backend
   @action
   async submitData() {
     let response = await this.cart.listCart();
