@@ -13,4 +13,5 @@ Router.map(function () {
   this.route('checkout');
   this.route('login');
   this.route('history');
+  this.route('profile');
 });
