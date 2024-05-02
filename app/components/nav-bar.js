@@ -7,6 +7,7 @@ export default class NavBarComponent extends Component {
 
   @action
   async logout() {
+    localStorage.removeItem('shoppingCart');
     await this.session.invalidate();
   }
 }

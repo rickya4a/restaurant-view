@@ -7,6 +7,7 @@ import config from 'restaurant-view/config/environment';
 export default class CheckoutController extends Controller {
   @service('shopping-cart') cart;
   @service router;
+  @service session;
 
   @action
   async submitData() {
@@ -31,12 +32,11 @@ export default class CheckoutController extends Controller {
       `${config.APP.DOMAIN}/api/Orders`,
       {
         ...sum,
-        customerId: 1,
+        customerId: this.session.data.authenticated.userId,
       },
       {
         params: {
-          access_token:
-            'pNxC1K3cFVkoFoTqV0BL0DwanqPUoQmQgmkHrpmD2XTmmvSEMy69gQN3lJtlsNFi',
+          access_token: this.session.data.authenticated.token,
         },
       },
     );
@@ -53,8 +53,7 @@ export default class CheckoutController extends Controller {
       itemOrder,
       {
         params: {
-          access_token:
-            'pNxC1K3cFVkoFoTqV0BL0DwanqPUoQmQgmkHrpmD2XTmmvSEMy69gQN3lJtlsNFi',
+          access_token: this.session.data.authenticated.token,
         },
       },
     );

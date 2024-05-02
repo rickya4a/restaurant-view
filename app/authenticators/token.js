@@ -17,7 +17,7 @@ export default class Token extends Base {
         username,
         password,
       });
-      return { token: auth.data.id };
+      return { token: auth.data.id, userId: auth.data.userId };
     } catch (error) {
       console.log(error);
     }
