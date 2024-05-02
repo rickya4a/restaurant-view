@@ -7,7 +7,6 @@ export default class NavBarComponent extends Component {
 
   @action
   async logout() {
-    this.session.setup();
-    await this.session.handleInvalidation('');
+    await this.session.invalidate();
   }
 }

@@ -7,6 +7,6 @@ export default class LoginRoute extends Route {
 
   beforeModel(transition) {
     this.session.setup();
-    this.session.prohibitAuthentication('index');
+    this.session.prohibitAuthentication('');
   }
 }

@@ -4,7 +4,12 @@ import axios from 'axios';
 import config from 'restaurant-view/config/environment';
 
 export default class Token extends Base {
-  restore(data) {}
+  async restore(data) {
+    let { token } = data;
+    if (token) return data;
+
+    throw 'invalid data';
+  }
 
   async authenticate(username, password) {
     try {
@@ -16,9 +21,5 @@ export default class Token extends Base {
     } catch (error) {
       console.log(error);
     }
-  }
-
-  invalidate(data) {
-    console.log(data)
   }
 }
